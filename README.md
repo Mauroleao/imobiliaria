@@ -1,53 +1,150 @@
-# Django Configuração de Projeto Padrão (Simples)
+# Sistema de Gestão Imobiliária
 
-Essa configuração simples de projeto django que utilizo para fazer testes e criar aplicações locais.
+Sistema web desenvolvido em Django para gerenciamento de propriedades imobiliárias, clientes, localizações e geração de relatórios.
 
-Espero que ajude !!!
+## 📋 Descrição
 
-Esse é link do Vídeo Tutorial [Link](https://www.youtube.com/watch?v=0y5YdiK7x0k)
+Aplicação completa para gerenciar imóveis, registrar clientes e localizações, com funcionalidades de upload de imagens e geração de relatórios.
 
-**Configurações Iniciais**
+## 🛠️ Tecnologias
 
-<details><summary><b>Ambiente Virtual Linux/Windows</b></summary>
+- **Python 3.x**
+- **Django 4.1.3** - Framework web
+- **Pillow 11.0.0** - Processamento de imagens
+- **SQLite** - Banco de dados (padrão Django)
 
-- **Ambiente Virtual Linux/Windows**
-    
-    
-    Lembrando… Precisa ter Python instalado no seu ambiente.
-    
-    **Criar o ambiente virtual Linux/Windows**
-    
-    ```python
-    ## Windows
-    python -m venv .venv
-    source .venv/Scripts/activate # Ativar ambiente
-    
-    ## Linux 
-    ## Caso não tenha virtualenv. "pip install virtualenv"
-    virtualenv .venv
-    source .venv/bin/activate # Ativar ambiente
-    ```
-    
-    Instalar os seguintes pacotes.
-    
-    ```python
-    pip install django
-    pip install pillow
-    ```
-    
-    Para criar o arquivo *requirements.txt*
-    
-    ```python
-    pip freeze > requirements.txt
-    ```
+## 📦 Pré-requisitos
 
-</details>
+- Python 3.8 ou superior
+- pip (gerenciador de pacotes Python)
 
-<details><summary><b>Criando o Projeto</b></summary>
+## 🚀 Instalação Rápida
 
-- **Criando o Projeto**
-    
-    ## **Criando o projeto**
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/Mauroleao/imobiliaria.git
+cd imobiliaria
+```
+
+### 2. Criar e Ativar Ambiente Virtual
+
+**Windows:**
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+**Linux/macOS:**
+```bash
+python -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Instalar Dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configurar Banco de Dados
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### 5. Criar Superusuário (Administrador)
+
+```bash
+python manage.py createsuperuser
+```
+
+### 6. Rodar Servidor de Desenvolvimento
+
+```bash
+python manage.py runserver
+```
+
+Acesse em: http://127.0.0.1:8000/
+
+## 📁 Estrutura do Projeto
+
+```
+imobiliaria/
+├── core/                 # Configurações principais do projeto
+│   ├── settings.py      # Configurações do Django
+│   ├── urls.py          # Rotas principais
+│   ├── asgi.py
+│   └── wsgi.py
+├── base/                 # App base com templates e static
+│   ├── templates/       # Templates HTML compartilhados
+│   ├── static/          # CSS, imagens compartilhadas
+│   └── migrations/
+├── myapp/               # App principal de imóveis
+│   ├── models.py        # Modelos: Imóvel, Cliente, Localização, Imagem
+│   ├── views.py         # Lógica da aplicação
+│   ├── forms.py         # Formulários
+│   ├── urls.py          # Rotas da aplicação
+│   ├── templates/       # Templates específicos da app
+│   ├── migrations/      # Histórico de mudanças no BD
+│   └── admin.py         # Configuração do admin
+├── manage.py            # Script de gerenciamento
+└── requirements.txt     # Dependências do projeto
+```
+
+## 📝 Requisitos (requirements.txt)
+
+A versão do **Pillow** foi atualizada para **11.0.0** para compatibilidade com versões atuais de Python e melhor performance no processamento de imagens.
+
+```
+asgiref==3.5.2
+Django==4.1.3
+Pillow==11.0.0
+sqlparse==0.4.3
+tzdata==2022.7
+```
+
+## 👤 Admin
+
+Acesse o painel administrativo em: http://127.0.0.1:8000/admin
+
+Use as credenciais do superusuário criado na instalação.
+
+## 📚 Funcionalidades
+
+- ✅ Cadastro e gestão de imóveis
+- ✅ Gestão de clientes
+- ✅ Registro de localizações
+- ✅ Upload de imagens de imóveis
+- ✅ Geração de relatórios
+- ✅ Painel administrativo completo
+
+## 🔧 Comandos Úteis
+
+```bash
+# Criar migrations
+python manage.py makemigrations
+
+# Aplicar migrations
+python manage.py migrate
+
+# Criar superusuário
+python manage.py createsuperuser
+
+# Rodar servidor
+python manage.py runserver
+
+# Acessar shell do Django
+python manage.py shell
+
+# Coletar arquivos estáticos (produção)
+python manage.py collectstatic
+```
+
+## 📖 Referências
+
+Desenvolvido com base em boas práticas de Django e estrutura MVC.
     
     “core” é nome do seu projeto e quando colocamos um “.” depois do nome do projeto significa que é para criar os arquivos na raiz da pasta. Assim não cria subpasta do projeto.
     
